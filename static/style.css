@@ -40,6 +40,14 @@ body {
     text-transform: uppercase;
 }
 
+.error {
+    color: #dc2626;
+    background-color: #fef2f2;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 10px;
+}
 h1 {
     margin: 8px 0 10px;
     color: #14213d;

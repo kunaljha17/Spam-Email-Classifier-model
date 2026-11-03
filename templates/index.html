@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Spam Classifier</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <main class="page-shell">
         <section class="classifier-card" aria-labelledby="page-title">
@@ -17,6 +19,11 @@
                 <label for="email-content">Email content</label>
                 <textarea id="email-content" name="email-content" rows="10"
                     placeholder="Type or paste your email here...">{{ email_text or '' }}</textarea>
+                <!-- Validation Error -->
+                {% if error %}
+                <p class="error">{{ error }}</p>
+                {% endif %}
+                
                 <div class="form-actions">
                     <button type="submit">Check for spam</button>
                     <a class="reset-link" href="/">Clear</a>
@@ -27,10 +34,12 @@
             <div class="result {% if prediction == 1 %}result-spam{% else %}result-safe{% endif %}" role="status">
                 <span class="result-label">Result</span>
                 <h2>{{ 'Spam detected' if prediction == 1 else 'NOT Spam, Looks safe' }}</h2>
-                <p>{{ 'This email may contain unwanted or suspicious content.' if prediction == 1 else 'This email does not appear to be spam.' }}</p>
+                <p>{{ 'This email may contain unwanted or suspicious content.' if prediction == 1 else 'This email does
+                    not appear to be spam.' }}</p>
             </div>
             {% endif %}
         </section>
     </main>
 </body>
+
 </html>
