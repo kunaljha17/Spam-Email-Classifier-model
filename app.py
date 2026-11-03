@@ -81,7 +81,6 @@ def api_predict():
     # 5. Return response
     return jsonify({
         "prediction": prediction,
-        "label": "Spam" if prediction == 1 else "Not Spam",
         "email": email
     }), 200
 if __name__ == '__main__':
